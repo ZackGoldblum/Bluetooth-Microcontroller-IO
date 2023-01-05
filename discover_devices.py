@@ -10,7 +10,7 @@ async def discover_devices(*device_addresses: str) -> list:
         device_addresses (str, optional): Specific BLE device address(es) to search for. Defaults to None.
 
     Returns:
-        list: discovered BLE devices
+        list: Discovered BLE devices
     """
     print("\nScanning for devices...")
     devices = await BleakScanner.discover(timeout=5)
@@ -38,5 +38,5 @@ async def discover_devices(*device_addresses: str) -> list:
 # Example usage:
 # --------------
 # devices = asyncio.run(discover_devices())
-# devices = asyncio.run(discover_devices("D3:A8:C0:86:B2:30"))
-# devices = asyncio.run(discover_devices("D3:A8:C0:86:B2:30", "FB:EF:7B:C2:EB:89"))
+# devices = asyncio.run(discover_devices("DA:A8:C0:86:B2:30"))
+# devices = asyncio.run(discover_devices("DA:A8:C0:86:B2:30", "FB:EF:7B:C8:EB:89"))
