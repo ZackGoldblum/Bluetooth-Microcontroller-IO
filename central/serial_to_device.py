@@ -40,7 +40,7 @@ def main() -> None:
     while not ser:
         try:
             ser = serial.Serial(COM_port, 9600, timeout=0.5)
-        except serial.SerialException as e:
+        except serial.SerialException:
             print("Invalid COM port. Please try again.")
             COM_port = get_COM_port()
 
