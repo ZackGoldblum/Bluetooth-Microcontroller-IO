@@ -23,12 +23,12 @@ async def handle_disconnect(client: bleak.BleakClient) -> None:
     """
     await client.disconnect()
 
-async def connect_and_recv(device: bleak.backends.device.BLEDevice, recv_time: int = 10) -> None:
+async def connect_and_recv(device: bleak.backends.device.BLEDevice, recv_time: int) -> None:
     """ Connect to BLE device and receive data.
 
     Args:
         device (bleak.backends.device.BLEDevice): BLE device.
-        recv_time (int, optional): Number of seconds of BLE data to receive. Defaults to 10.
+        recv_time (int): Number of seconds of BLE data to receive.
     """
     print(f"Attempting to connect to {device.address}")
     async with bleak.BleakClient(device.address, timeout=15.0, disconnected_callback=handle_disconnect) as client:
