@@ -18,19 +18,22 @@ def write_to_device(output_type: str, ser: serial.Serial) -> None:
         output_type (str): "loop" or "manual".
         ser (serial.Serial): Serial port connection.
     """
-    if output_type == "loop":
-        i = 0
-        while True:
-            msg = f"{i} - Hello!"
-            ser.write(msg.encode())
-            i += 1
-            time.sleep(1)
-            print(f"Sent '{msg}'")
-    elif output_type == "manual":
-        while True:
-            msg = input("Enter your message: ")
-            ser.write(msg.encode())
-            print(f"Sent '{msg}'")
+    try:
+        if output_type == "loop":
+            i = 0
+            while ser:
+                msg = f"{i} - Hello!"
+                ser.write(msg.encode())
+                i += 1
+                time.sleep(1)
+                print(f"Sent '{msg}'")
+        elif output_type == "manual":
+            while ser:
+                msg = input("Enter your message: ")
+                ser.write(msg.encode())
+                print(f"Sent '{msg}'")
+    except serial.SerialException:
+        print("Serial connection closed.")
 
 def main() -> None:
     """ Entrypoint into the script.
