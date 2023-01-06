@@ -19,13 +19,6 @@ def led_green():
     led.brightness = 0.05
     led[0] = (0, 255, 0) 
 
-def blink_led_slow():
-    """Blink the LED slow"""
-    led.brightness = 0.0
-    time.sleep(1)
-    led.brightness = 0.05
-    time.sleep(1)
-
 def blink_led_fast():
     """Blink the LED fast"""
     led.brightness = 0.0
