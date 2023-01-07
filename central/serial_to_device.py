@@ -39,18 +39,34 @@ def main() -> None:
     """ Entrypoint into the script.
     """
     COM_port = get_COM_port()
+    serial_connected = False
     ser = None
-    while not ser:
+
+    while not ser:  # prompt user until valid serial port is entered 
         try:
-            ser = serial.Serial(COM_port, 9600, timeout=0.5)
+            ser = serial.Serial(COM_port, 9600, timeout=0.1)
         except serial.SerialException:
             print("Invalid COM port. Please try again.")
             COM_port = get_COM_port()
 
-    output_type = None
-    while output_type not in ("loop", "manual"):
-        output_type = str(input("Enter output type ('loop' or 'manual'): "))
-    write_to_device(output_type, ser)
+    ser.write("serial_conn\r".encode())
+    timeout = time.time() + 3  # 3-second timeout if no response from device
+
+    while not serial_connected:  # listen for response from device
+        data = ser.readline().decode().strip()
+        if data == "connected":
+            print("Serial connection established.")
+            serial_connected = True
+        elif time.time() > timeout:
+            print("Failed to establish serial connection.")
+            break
+
+    if serial_connected:  # enter messaging interface
+        output_type = None
+        while output_type not in ("loop", "manual"):
+            output_type = str(input("Enter output type ('loop' or 'manual'): "))
+        print("Press CTRL+C to end.")
+        write_to_device(output_type, ser)
 
 if __name__ == "__main__":
     main()
