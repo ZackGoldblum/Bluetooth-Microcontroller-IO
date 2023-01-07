@@ -41,7 +41,7 @@ advertisement = ProvideServicesAdvertisement(uart)
 while True:
     ble.start_advertising(advertisement)
     while not ble.connected:
-        blink_led_fast()
+        pass
 
     while ble.connected:
         while not serial_connected:
