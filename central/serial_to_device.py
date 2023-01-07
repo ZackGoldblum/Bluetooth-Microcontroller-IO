@@ -34,6 +34,8 @@ def write_to_device(output_type: str, ser: serial.Serial) -> None:
                 print(f"Sent '{msg}'")
     except serial.SerialException:
         print("Serial connection closed.")
+    except KeyboardInterrupt:
+        print("\nProgram ended.")
 
 def main() -> None:
     """ Entrypoint into the script.
