@@ -2,7 +2,7 @@ import time
 import serial
 
 def get_COM_port() -> str:
-    """ Get COM port of the BLE device.
+    """ Have user enter the COM port of the BLE device.
 
     Returns:
         str: COM port.
@@ -38,7 +38,7 @@ def write_to_device(output_type: str, ser: serial.Serial) -> None:
         print("\nProgram ended.")
 
 def main() -> None:
-    """ Entrypoint into the script.
+    """ CLI to write serial messages to the device.
     """
     COM_port = get_COM_port()
     serial_connected = False
