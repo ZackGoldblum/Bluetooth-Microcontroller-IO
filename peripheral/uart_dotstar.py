@@ -1,3 +1,8 @@
+""" Peripheral device.
+    Advertise UART BLE connection and transmit data once connected.
+    Connection status is indicated using an on-board Adafruit DotStar LED.
+"""
+
 import time
 from adafruit_ble import BLERadio
 from adafruit_ble.services.nordic import UARTService

@@ -1,3 +1,8 @@
+""" Central device.
+    Listen for BLE advertisements and display the discovered devices.
+    Addresses can be specified to search for known devices.
+"""
+
 import asyncio
 from bleak import BleakScanner
 

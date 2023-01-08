@@ -1,3 +1,9 @@
+""" Central device.
+    Send serial port data to device via USB to the device.
+    Messages can be sent in a loop or manually.
+    Includes an echo handshake with the peripheral device to confirm serial connection. 
+"""
+
 import time
 import serial
 

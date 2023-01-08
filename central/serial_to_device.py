@@ -1,3 +1,8 @@
+""" Central device.
+    Send serial port data to device via USB to the device.
+    Messages can be sent in a loop or manually.
+"""
+
 import time
 import serial
 

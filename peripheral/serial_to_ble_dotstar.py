@@ -1,3 +1,8 @@
+""" Peripheral device.
+    Advertise UART BLE connection, read serial port data via USB, and transmit data once connected.
+    Connection status is indicated using an on-board Adafruit DotStar LED.
+"""
+
 import time
 import supervisor
 from adafruit_ble import BLERadio

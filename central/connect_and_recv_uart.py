@@ -1,3 +1,7 @@
+""" Central device.
+    Listen for a UART BLE advertisement and receive data once connected to a specified device.
+"""
+
 import asyncio
 import bleak
 from discover_devices import discover_devices

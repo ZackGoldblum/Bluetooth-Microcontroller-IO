@@ -1,3 +1,7 @@
+""" Peripheral device.
+    Advertise UART BLE connection and transmit data once connected.
+"""
+
 import time
 from adafruit_ble import BLERadio
 from adafruit_ble.services.nordic import UARTService

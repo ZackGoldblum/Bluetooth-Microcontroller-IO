@@ -1,3 +1,8 @@
+""" Peripheral device.
+    Advertise UART BLE connection, read serial port data via USB, and transmit data once connected.
+    Includes an echo handshake with the central device to confirm serial connection. 
+"""
+
 import time
 import supervisor
 from adafruit_ble import BLERadio
